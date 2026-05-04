@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Version 26.1-r5
+------------------------------------------------------
+- cleanup datagen for other mods to use
+
+------------------------------------------------------
 Version 26.1-r4
 ------------------------------------------------------
 - use getter method in cannibal level component for mixin compat purposes
