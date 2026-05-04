@@ -2,7 +2,7 @@
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
 
-package moriyashiine.anthropophagy.data.provider;
+package moriyashiine.anthropophagy.datagen.provider;
 
 import moriyashiine.anthropophagy.common.init.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;

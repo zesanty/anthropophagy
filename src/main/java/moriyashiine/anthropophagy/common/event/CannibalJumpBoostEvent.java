@@ -9,13 +9,12 @@ import moriyashiine.anthropophagy.common.init.ModEntityComponents;
 import moriyashiine.strawberrylib.api.event.ModifyMovementEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
 
 public class CannibalJumpBoostEvent implements ModifyMovementEvents.JumpDelta {
 	@Override
 	public Vec3 modify(Vec3 delta, LivingEntity entity) {
 		if (entity.isShiftKeyDown()) {
-			@Nullable CannibalLevelComponent cannibalLevelComponent = ModEntityComponents.CANNIBAL_LEVEL.getNullable(entity);
+			CannibalLevelComponent cannibalLevelComponent = ModEntityComponents.CANNIBAL_LEVEL.getNullable(entity);
 			if (cannibalLevelComponent != null) {
 				return delta.add(0, cannibalLevelComponent.getJumpBoost(), 0);
 			}

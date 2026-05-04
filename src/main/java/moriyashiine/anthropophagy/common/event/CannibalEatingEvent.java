@@ -18,13 +18,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 
 public class CannibalEatingEvent implements EatFoodEvent {
 	@Override
 	public void eat(Level level, LivingEntity user, ItemStack stack, FoodProperties properties) {
-		@Nullable CannibalLevelComponent cannibalLevelComponent = ModEntityComponents.CANNIBAL_LEVEL.getNullable(user);
-		@Nullable TetheredComponent tetheredComponent = ModEntityComponents.TETHERED.getNullable(user);
+		CannibalLevelComponent cannibalLevelComponent = ModEntityComponents.CANNIBAL_LEVEL.getNullable(user);
+		TetheredComponent tetheredComponent = ModEntityComponents.TETHERED.getNullable(user);
 		if (cannibalLevelComponent == null || tetheredComponent == null) {
 			return;
 		}

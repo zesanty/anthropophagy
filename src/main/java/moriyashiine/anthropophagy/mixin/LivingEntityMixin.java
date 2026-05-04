@@ -13,7 +13,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -27,7 +26,7 @@ public abstract class LivingEntityMixin extends Entity {
 
 	@Inject(method = "dropCustomDeathLoot", at = @At("HEAD"))
 	private void anthropophagy$dropTetheredHeart(ServerLevel level, DamageSource source, boolean killedByPlayer, CallbackInfo ci) {
-		@Nullable TetheredComponent tetheredComponent = ModEntityComponents.TETHERED.getNullable(this);
+		TetheredComponent tetheredComponent = ModEntityComponents.TETHERED.getNullable(this);
 		if (tetheredComponent != null && tetheredComponent.isTethered()) {
 			spawnAtLocation(level, ModItems.PIGLUTTON_HEART);
 		}
