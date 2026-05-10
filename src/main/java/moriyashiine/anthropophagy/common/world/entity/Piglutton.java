@@ -235,7 +235,7 @@ public class Piglutton extends Monster {
 				eatingTicks = 0;
 			}
 		}
-		if (accessor == ATTACK_INDEX) {
+		if (accessor == ATTACK_INDEX && !firstTick) {
 			attackTicks = 10;
 		}
 	}
