@@ -10,7 +10,7 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 public class PigluttonWanderAroundFarGoal extends WaterAvoidingRandomStrollGoal {
 	public PigluttonWanderAroundFarGoal(Piglutton mob, double speedModifier) {
 		super(mob, speedModifier);
-		this.interval = 6; // Default is 120
+		this.interval = 60;
 	}
 
 	@Override

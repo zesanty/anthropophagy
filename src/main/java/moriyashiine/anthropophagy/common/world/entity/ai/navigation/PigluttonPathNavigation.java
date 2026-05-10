@@ -49,12 +49,20 @@ public class PigluttonPathNavigation extends GroundPathNavigation {
 			path.advance();
 		}
 		doStuckDetection(currentPos);
+
+		if (this.path != null && !this.path.isDone() && getTargetPos() != null &&
+				Vec3.atBottomCenterOf(this.path.getNextNodePos()).distanceTo(getTargetPos().getCenter()) > mob.position().distanceTo(getTargetPos().getCenter())) {
+			recomputePath();
+		}
 	}
 
 	private void moveToOrStop(BlockPos target) {
-		maxDistanceToWaypoint = (float) Math.sqrt(180 * mob.getBbWidth());
+		maxDistanceToWaypoint = Math.max(0.5F, mob.getBbWidth() / 2.0F);
+
 		mob.getMoveControl().setWantedPosition(target.getX(), target.getY(), target.getZ(), speedModifier);
-		if (mob.distanceToSqr(target.getX(), target.getY(), target.getZ()) <= maxDistanceToWaypoint) {
+
+		float stopDistanceSqr = (float) Math.sqrt(180 * mob.getBbWidth());
+		if (mob.distanceToSqr(target.getX(), target.getY(), target.getZ()) <= stopDistanceSqr) {
 			mob.getNavigation().stop();
 		}
 	}
