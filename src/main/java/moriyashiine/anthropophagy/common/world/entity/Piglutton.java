@@ -9,7 +9,7 @@ import moriyashiine.anthropophagy.common.init.ModSoundEvents;
 import moriyashiine.anthropophagy.common.tag.ModBlockTags;
 import moriyashiine.anthropophagy.common.tag.ModEntityTypeTags;
 import moriyashiine.anthropophagy.common.world.entity.ai.goal.*;
-import moriyashiine.anthropophagy.common.world.entity.ai.pathing.PigluttonPathNavigation;
+import moriyashiine.anthropophagy.common.world.entity.ai.navigation.PigluttonPathNavigation;
 import moriyashiine.strawberrylib.api.module.SLibUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -31,6 +31,7 @@ import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -63,7 +64,6 @@ public class Piglutton extends Monster {
 
 	public Piglutton(EntityType<? extends Monster> type, Level level) {
 		super(type, level);
-		navigation = new PigluttonPathNavigation(this, level(), 3);
 		xpReward = 30;
 		setPathfindingMalus(PathType.LEAVES, 0);
 		setPathfindingMalus(PathType.WATER, -1);
@@ -82,6 +82,11 @@ public class Piglutton extends Monster {
 
 	public static boolean checkPigluttonSpawnRules(EntityType<Piglutton> type, ServerLevelAccessor level, EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
 		return random.nextInt(8) == 0 && Monster.checkMonsterSpawnRules(type, level, spawnReason, pos, random);
+	}
+
+	@Override
+	protected PathNavigation createNavigation(Level level) {
+		return new PigluttonPathNavigation(this, level, 3);
 	}
 
 	@Override

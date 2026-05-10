@@ -2,7 +2,7 @@
  * Copyright (c) MoriyaShiine. All Rights Reserved.
  */
 
-package moriyashiine.anthropophagy.common.world.entity.ai.pathing;
+package moriyashiine.anthropophagy.common.world.entity.ai.navigation;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
