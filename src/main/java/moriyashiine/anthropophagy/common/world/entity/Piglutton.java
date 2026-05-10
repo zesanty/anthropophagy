@@ -127,7 +127,7 @@ public class Piglutton extends Monster {
 		goalSelector.addGoal(2, new StalkGoal(this));
 		goalSelector.addGoal(2, new FleeGoal(this));
 		goalSelector.addGoal(3, new PigluttonMeleeAttackGoal(this, 1, true));
-		goalSelector.addGoal(4, new PigluttonWanderAroundFarGoal(this, 1 / 6F));
+		goalSelector.addGoal(4, new PigluttonWanderAroundFarGoal(this, 1 / 3F));
 		goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 16));
 		goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 		targetSelector.addGoal(0, new HurtByTargetGoal(this));
