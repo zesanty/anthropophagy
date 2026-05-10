@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import static moriyashiine.strawberrylib.api.module.SLibRegistries.registerEntityType;
 
 public class ModEntityTypes {
-	public static final EntityType<Piglutton> PIGLUTTON = registerEntityType("piglutton", EntityType.Builder.of(Piglutton::new, MobCategory.MONSTER).sized(3, 2.6F).canSpawnFarFromPlayer(), Piglutton.createAttributes());
+	public static final EntityType<Piglutton> PIGLUTTON = registerEntityType("piglutton", EntityType.Builder.of(Piglutton::new, MobCategory.MONSTER).sized(3, 2.6F).canSpawnFarFromPlayer().notInPeaceful(), Piglutton.createAttributes());
 
 	public static void init() {
 		SpawnPlacements.register(PIGLUTTON, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.WORLD_SURFACE, Piglutton::checkPigluttonSpawnRules);
